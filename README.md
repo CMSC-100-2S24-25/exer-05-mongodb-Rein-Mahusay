@@ -12,5 +12,6 @@
 
 ## References
 
--
--
+- most are from the demo during the laboratory discussion
+- https://classroom.google.com/u/0/c/NzQ3MjE3NDMzODMw/m/NzUyMjkxMjc0Mjg4/details
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch

@@ -48,4 +48,23 @@ const removeAll = async (req, res) => {
     }
 }
 
-export { homepage, User, Members, removeUser, removeAll }
+
+
+const saveStudent = async (req, res) => {
+    //putting instance inside will catch the error, if there are any
+    try {
+        const { stdnum, fname, lname, age } = req.body;
+
+        if (stdnum, fname, lname, age) {
+            const newStudent = new Student({ stdnum, fname, lname, age });
+            await newStudent.save();
+            res.send({ inserted: true });
+        } else {
+            res.send({ inserted: false });
+        }
+    } catch (error) {
+        res.send({ inserted: false });
+    }
+}
+
+export { homepage, User, Members, removeUser, removeAll, saveStudent }
