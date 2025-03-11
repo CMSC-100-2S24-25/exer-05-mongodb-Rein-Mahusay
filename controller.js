@@ -17,6 +17,8 @@ const homepage = (req, res) => {
     res.send('Welcome to the Homepage');
 }
 
+
+
 const User = async (req, res) => {
     res.send(await Student.find({ stdnum: req.query.stdnum }));
 }
@@ -31,6 +33,8 @@ const Members = async (req, res) => {
         res.json([]);
     }
 }
+
+
 
 //remove user by stdnum
 const removeUser = async (req, res) => {
@@ -67,4 +71,19 @@ const saveStudent = async (req, res) => {
     }
 }
 
-export { homepage, User, Members, removeUser, removeAll, saveStudent }
+const updateUser = async (req, res) => {
+    try {
+        const { fname, fnameNew, lnameNew } = req.body;
+
+        if (fname, fnameNew, lnameNew) {
+            const update = await Student.updateOne({ fname }, { $set: { fname: fnameNew, lname: lnameNew } });
+            res.send({ updated: true });
+        } else {
+            res.send({ updated: false });
+        }
+    } catch (error) {
+        res.send({ updated: false });
+    }
+}
+
+export { homepage, User, Members, removeUser, removeAll, saveStudent, updateUser }

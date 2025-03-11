@@ -1,5 +1,9 @@
 import needle from 'needle';
 
+//commenting out to test bawat needle
+
+//all works
+
 /*
 needle.get('http://localhost:3000/user', (err, res) => {
     console.log(res.body);
@@ -54,13 +58,14 @@ const newStudent = {
 };
 */
 
-
+/*
 const newStudent = {
     stdnum: "8573648572",
     fname: "Cam",
     lname: "Allen",
     age: 20
 };
+*/
 
 
 /*
@@ -70,10 +75,25 @@ const newStudent = {
     lname: "Watson",
     age: 20
 };
-*/
+
 
 needle.post('http://localhost:3000/save-student',
     newStudent,
+    (err, res) => {
+        console.log(res.body);
+    }
+);
+*/
+
+
+const update = {
+    fname: "Mary Jane",
+    fnameNew: "MJ",
+    lnameNew: "Parker"
+}
+
+needle.post('http://localhost:3000/update',
+    update,
     (err, res) => {
         console.log(res.body);
     }

@@ -1,6 +1,6 @@
 //requests here
 
-import { homepage, User, Members, removeUser, removeAll, saveStudent } from './controller.js';
+import { homepage, User, Members, removeUser, removeAll, saveStudent, updateUser } from './controller.js';
 
 const router = (app) => {
     app.get('/', homepage);
@@ -11,6 +11,7 @@ const router = (app) => {
     app.post('/remove-all-user', removeAll);
 
     app.post('/save-student', saveStudent);
+    app.post('/update', updateUser);
 }
 
 export default router;
