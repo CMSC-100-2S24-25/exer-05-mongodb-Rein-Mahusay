@@ -1,4 +1,6 @@
 //html body
+//based from the sample in the instructions
+//for the queries
 
 import mongoose from "mongoose";
 
@@ -30,4 +32,20 @@ const Members = async (req, res) => {
     }
 }
 
-export { homepage, User, Members }
+//remove user by stdnum
+const removeUser = async (req, res) => {
+    res.send(await Student.deleteOne({ stdnum: req.body.stdnum }));
+}
+
+//check the return object of the model (acknowledge/deleteCount)
+const removeAll = async (req, res) => {
+    const students = await Student.deleteMany({});
+
+    if (students.acknowledged) {
+        res.send({ deleted: true | students.deletedCount });
+    } else {
+        res.send({ deleted: false });
+    }
+}
+
+export { homepage, User, Members, removeUser, removeAll }
